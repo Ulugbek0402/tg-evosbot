@@ -1,24 +1,20 @@
 import logging
 from asyncio import run
-import sys
-import os
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from aiogram import Bot
 
-from aiogram import Bot, Dispatcher
-from aiogram.client.default import DefaultBotProperties
-
-from core.config import TOKEN, DEVELOPER
-from core.table_queries import initializing_tables
-from apps.routers import register
-from apps.routers import start, feedback, backs
+from apps.middlewares.db_session import DbSessionMiddleware
+from apps.middlewares.language import LanguageMiddleware
+from apps.middlewares.subscription import SubscribeMiddleware
+from apps.routers import start, register, feedback, backs, user_menu
 from apps.utils.commands import set_my_commands
+from core.config import DEVELOPER
+from loader import dp, bot, i18n
 
 
 async def startup(bot: Bot):
-    initializing_tables()
     await set_my_commands(bot)
-    # await bot.send_message(text="Bot start to work", chat_id=DEVELOPER)
+    await bot.send_message(text="Bot start to work", chat_id=DEVELOPER)
 
 
 async def shutdown(bot: Bot):
@@ -26,13 +22,15 @@ async def shutdown(bot: Bot):
 
 
 async def main():
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode='HTML'))
-    dp = Dispatcher()
-
     dp.include_router(router=start.router)
     dp.include_router(router=register.router)
     dp.include_router(router=feedback.router)
     dp.include_router(router=backs.router)
+    dp.include_router(router=user_menu.router)
+
+    dp.message.middleware.register(DbSessionMiddleware())
+    dp.message.middleware.register(LanguageMiddleware(i18n=i18n))
+    dp.message.middleware.register(SubscribeMiddleware())
 
     dp.startup.register(startup)
     dp.shutdown.register(shutdown)
@@ -44,7 +42,7 @@ if __name__ == '__main__':
     logging.basicConfig(
         format="[%(asctime)s] - %(levelname)s - %(name)s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
-        level=logging.INFO
+        level=logging.ERROR
     )
-    logging.getLogger("aiogram.event").setLevel(logging.WARNING)
+    logging.getLogger("aiogram.event").setLevel(logging.ERROR)
     run(main())
