@@ -1,8 +1,8 @@
 from aiogram import Router, F, types
 from aiogram.fsm.context import FSMContext
 
-from keyboards.default.user import user_main_keyboard
-from states.user import Feedback
+from apps.keyboards.default.user import user_main_keyboard
+from apps.states.user import Feedback
 
 router = Router()
 

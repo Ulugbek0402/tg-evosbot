@@ -2,9 +2,9 @@ from aiogram import Router, F, types, Bot
 from aiogram.fsm.context import FSMContext
 
 from core.config import DEVELOPER
-from keyboards.default.user import back_user_main_keyboard, user_main_keyboard
+from apps.keyboards.default.user import back_user_main_keyboard, user_main_keyboard
 from queries.user import get_user
-from states.user import Feedback
+from apps.states.user import Feedback
 
 router = Router()
 

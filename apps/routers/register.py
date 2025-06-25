@@ -1,9 +1,9 @@
 from aiogram import Router, types, F
 from aiogram.fsm.context import FSMContext
 
-from keyboards.default.user import phone_number_share, location_share, user_main_keyboard
+from apps.keyboards.default.user import phone_number_share, location_share, user_main_keyboard
 from queries.user import register
-from states.user import Register
+from apps.states.user import Register
 
 router = Router()
 

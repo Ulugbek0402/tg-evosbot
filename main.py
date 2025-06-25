@@ -10,8 +10,9 @@ from aiogram.client.default import DefaultBotProperties
 
 from core.config import TOKEN, DEVELOPER
 from core.table_queries import initializing_tables
-from routers import common, register, feedback, backs
-from utils.commands import set_my_commands
+from apps.routers import register
+from apps.routers import start, feedback, backs
+from apps.utils.commands import set_my_commands
 
 
 async def startup(bot: Bot):
@@ -28,7 +29,7 @@ async def main():
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode='HTML'))
     dp = Dispatcher()
 
-    dp.include_router(router=common.router)
+    dp.include_router(router=start.router)
     dp.include_router(router=register.router)
     dp.include_router(router=feedback.router)
     dp.include_router(router=backs.router)
