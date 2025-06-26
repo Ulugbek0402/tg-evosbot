@@ -33,24 +33,22 @@ async def get_user_full_name_handler(message: types.Message, state: FSMContext):
 
 @router.message(Register.phone_number, F.contact)
 async def get_user_phone_number_handler(message: types.Message, state: FSMContext):
-    await state.update_data(phone_number=message.contact.phone_number)
+    await state.update_data(
+        phone_number=message.contact.phone_number,
+        username=message.from_user.username
+    )
     data = await state.get_data()
     language = data.get('language')
 
-    await message.answer(
-        text=_("Please share your location", locale=language),
-        reply_markup=location_share
-    )
+    await message.answer(text=_("Please share your location", locale=language), reply_markup=location_share)
     await state.set_state(Register.location)
 
 
 @router.message(Register.location, F.location)
-async def get_user_location_handler(message: types.Message, state: FSMContext):
+async def get_user_location_handler(message: types.Message, state: FSMContext, session: AsyncSession):
     await state.update_data(longitude=message.location.longitude, latitude=message.location.latitude)
     data = await state.get_data()
     language = data.get('language')
-    session: AsyncSession = data["session"]
-
     if await register(data=data, session=session):
         await message.answer(text=_("You have successfully registered 🎉", locale=language),
                              reply_markup=await user_main_keyboard())
