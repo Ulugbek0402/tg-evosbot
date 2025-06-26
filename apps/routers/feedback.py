@@ -8,7 +8,7 @@ from core.config import DEVELOPER
 router = Router()
 
 
-@router.message(F.text == "✍ Send feedback")
+@router.message(F.text.in_(["✍ Send feedback", "✍ Отправить отзыв", "✍ Fikr bildirish"]))
 async def send_feedback_handler(message: types.Message, state: FSMContext):
     text = "Please enter your message in one text"
     await message.answer(text=text, reply_markup=await back_user_main_keyboard())
