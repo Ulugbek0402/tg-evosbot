@@ -1,0 +1,55 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-06-26 16:17+0500\n"
+"PO-Revision-Date: 2025-06-26 15:59+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: apps/keyboards/default/user.py:8
+msgid "🍴 Menu"
+msgstr "🍴 Menu"
+
+#: apps/keyboards/default/user.py:9
+msgid "🛍 My orders"
+msgstr "🛍 Buyurtmalarim"
+
+#: apps/keyboards/default/user.py:10
+msgid "✍ Send feedback"
+msgstr "✍ Fikr bildirish"
+
+#: apps/keyboards/default/user.py:20
+msgid "🗺 My address"
+msgstr "🗺 Manzilim"
+
+#: apps/keyboards/default/user.py:23 apps/keyboards/default/user.py:34
+msgid "⬅ Back"
+msgstr "⬅ Orqaga"
+
+#: apps/middlewares/subscription.py:34
+msgid "Please subscribe these channels\n"
+msgstr "Iltimos, ushbu kanallarga obuna bo‘ling\n"
+
+#: apps/routers/feedback.py:14
+msgid "Please enter your message in one text"
+msgstr "Iltimos, xabaringizni bitta matn sifatida kiriting"
+
+#: apps/routers/feedback.py:29
+msgid "Your feedback is sent to admins ✅"
+msgstr "Fikringiz administratorlarga yuborildi ✅"
+
+#: apps/routers/start.py:19
+msgid "Assalomu alaykum, admin 🫡"
+msgstr "Assalomu alaykum, admin 🫡"

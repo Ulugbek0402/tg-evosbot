@@ -23,6 +23,6 @@ CHANNELS = [
     {
         "name": "Channel 1",
         "link": "https://t.me/https://t.me/for_bot_test",
-        "chat_id": -1002529908861
+        "chat_id": -1002848846009
     }
 ]

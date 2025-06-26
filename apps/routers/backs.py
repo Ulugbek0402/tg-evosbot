@@ -7,8 +7,8 @@ from apps.states.user import Feedback
 router = Router()
 
 
-@router.message(Feedback.feedback, F.text == "⬅ Назад")
+@router.message(Feedback.feedback, F.text == "⬅ Back")
 async def back_user_main_keyboard(message: types.Message, state: FSMContext):
     text = "Main menu"
-    await message.answer(text=text, reply_markup=user_main_keyboard)
+    await message.answer(text=text, reply_markup=await user_main_keyboard)
     await state.clear()

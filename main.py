@@ -22,15 +22,15 @@ async def shutdown(bot: Bot):
 
 
 async def main():
+    dp.message.middleware.register(DbSessionMiddleware())
+    dp.message.middleware.register(LanguageMiddleware(i18n=i18n))
+    dp.message.middleware.register(SubscribeMiddleware())
+
     dp.include_router(router=start.router)
     dp.include_router(router=register.router)
     dp.include_router(router=feedback.router)
     dp.include_router(router=backs.router)
     dp.include_router(router=user_menu.router)
-
-    dp.message.middleware.register(DbSessionMiddleware())
-    dp.message.middleware.register(LanguageMiddleware(i18n=i18n))
-    dp.message.middleware.register(SubscribeMiddleware())
 
     dp.startup.register(startup)
     dp.shutdown.register(shutdown)

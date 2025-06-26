@@ -1,4 +1,4 @@
-from aiogram import types, Router
+from aiogram import types, Router, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -9,9 +9,14 @@ from apps.keyboards.default.admin import admin_main_keyboard
 from apps.keyboards.default.user import user_main_keyboard
 from apps.keyboards.inline.user import languages
 from apps.states.user import Register
-from loader import _, bot
+from loader import _
 
 router = Router()
+
+
+# @router.message(F.forward_from_chat)
+# async def get_channel_id(message: types.Message):
+#     await message.answer(text=f"channel id:{message.forward_from_chat.id}")
 
 
 @router.message(Command('start'), IsAdmin())
