@@ -1,5 +1,5 @@
 from aiogram.fsm.state import State, StatesGroup
-
+from aiogram.fsm.state import StatesGroup, State
 
 class Register(StatesGroup):
     language = State()
@@ -10,3 +10,7 @@ class Register(StatesGroup):
 
 class Feedback(StatesGroup):
     feedback = State()
+
+
+class LocationState(StatesGroup):
+    location = State()

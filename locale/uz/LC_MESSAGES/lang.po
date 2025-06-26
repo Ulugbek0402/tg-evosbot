@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-26 16:17+0500\n"
+"POT-Creation-Date: 2025-06-26 18:19+0500\n"
 "PO-Revision-Date: 2025-06-26 15:59+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: apps/keyboards/default/user.py:8
+#: apps/keyboards/default/user.py:8 apps/routers/user_menu.py:9
 msgid "🍴 Menu"
 msgstr "🍴 Menu"
 
@@ -34,6 +34,10 @@ msgstr "✍ Fikr bildirish"
 msgid "🗺 My address"
 msgstr "🗺 Manzilim"
 
+#: apps/keyboards/default/user.py:22 apps/routers/user_menu.py:17
+msgid "📍 Share location"
+msgstr "📍 Lokatsiya jo'natish"
+
 #: apps/keyboards/default/user.py:23 apps/keyboards/default/user.py:34
 msgid "⬅ Back"
 msgstr "⬅ Orqaga"
@@ -42,14 +46,41 @@ msgstr "⬅ Orqaga"
 msgid "Please subscribe these channels\n"
 msgstr "Iltimos, ushbu kanallarga obuna bo‘ling\n"
 
-#: apps/routers/feedback.py:14
-msgid "Please enter your message in one text"
+#: apps/routers/register.py:17
+#, fuzzy
+msgid "Please enter your full name"
 msgstr "Iltimos, xabaringizni bitta matn sifatida kiriting"
 
-#: apps/routers/feedback.py:29
-msgid "Your feedback is sent to admins ✅"
-msgstr "Fikringiz administratorlarga yuborildi ✅"
+#: apps/routers/register.py:28
+msgid "Please share your phone number"
+msgstr ""
 
-#: apps/routers/start.py:19
+#: apps/routers/register.py:42
+msgid "You have successfully registered 🎉"
+msgstr ""
+
+#: apps/routers/register.py:45
+msgid "Please try again later, something went wrong 😔"
+msgstr ""
+
+#: apps/routers/start.py:24
 msgid "Assalomu alaykum, admin 🫡"
 msgstr "Assalomu alaykum, admin 🫡"
+
+#: apps/routers/user_menu.py:15
+msgid ""
+"User menu is tapped.\n"
+"\n"
+"📍 Please share your location to proceed:"
+msgstr ""
+"Foydalanuvchi menyusi ochildi.\n"
+"\n"
+"📍 Davom etish uchun iltimos, joylashuvingizni ulashing:"
+
+#: apps/routers/user_menu.py:30
+msgid "📍 Location received successfully. Thanks!"
+msgstr "📍 Joylashuv muvaffaqiyatli qabul qilindi. Rahmat!"
+
+#~ msgid "Your feedback is sent to admins ✅"
+#~ msgstr "Fikringiz administratorlarga yuborildi ✅"
+
