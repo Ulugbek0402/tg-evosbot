@@ -13,8 +13,11 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 
 TOKEN = os.getenv("TOKEN")
+
+BASE_WEBHOOK_URL = os.getenv("BASE_WEBHOOK_URL")
+
 DEVELOPER = 1987023564
-ADMINS = []
+ADMINS = [1987023564]
 
 I18N_DOMAIN = 'lang'
 LOCALES_DIR = 'locale'
